@@ -6,6 +6,8 @@
 type Chat {
   body: String
   device: ID
+  "Array of edits to `body`, API/UI should cap edit count to 5."
+  edits: [String]
   file: String
   "Format is <id>@<domain|tld>"
   from: String
