@@ -1,0 +1,74 @@
+"""
+A date-time string at UTC, such as 2007-12-03T10:15:30Z, compliant with the `date-time` format outlined in section 5.6 of the RFC 3339 profile of the ISO 8601 standard for representation of dates and times using the Gregorian calendar.
+"""
+scalar DateTime
+"""
+The `Decimal` scalar type represents monetary values. It is used for preserving exact precision.
+"""
+scalar Decimal
+
+# import from "account.graphql"
+# import from "chat.graphql"
+# import from "emoji.graphql"
+# import from "group.graphql"
+# import from "pagination.graphql"
+
+type BooleanResponse {
+  "Was the operation successful?"
+  success: Boolean
+}
+
+type Query {
+  """
+  Account queries
+  """
+  account(params: AccountQuery): AccountResponse
+  accounts(params: AccountsQuery, pagination: PaginationOptions): AccountsResponse
+
+  """
+  Chat queries
+  """
+  chat(params: ChatQuery): ChatResponse
+  chats(params: ChatsQuery, pagination: PaginationOptions): ChatsResponse
+
+  """
+  Emoji queries
+  """
+  emoji(params: EmojiQuery): EmojiResponse
+  moreEmoji(params: MoreEmojiQuery, pagination: PaginationOptions): MoreEmojiResponse
+
+  """
+  Group query
+  """
+  group(params: GroupQuery): GroupResponse
+}
+
+type Mutation {
+  """
+  Account mutations
+  """
+  createAccount(params: AccountInput): AccountResponse
+  deleteAccount(params: AccountQuery): BooleanResponse
+  updateAccount(params: AccountQuery, updates: AccountInput): AccountResponse
+
+  """
+  Chat mutations
+  """
+  createChat(params: ChatInput): ChatResponse
+  deleteChat(params: ChatQuery): BooleanResponse
+  updateChat(params: ChatQuery, updates: ChatInput): ChatResponse
+
+  """
+  Emoji mutations
+  """
+  createEmoji(params: EmojiInput): EmojiResponse
+  deleteEmoji(params: EmojiQuery): BooleanResponse
+  updateEmoji(params: EmojiQuery, updates: EmojiInput): EmojiResponse
+
+  """
+  Group mutations
+  """
+  createGroup(params: GroupInput): GroupResponse
+  deleteGroup(params: GroupQuery): BooleanResponse
+  updateGroup(params: GroupQuery, updates: GroupInput): GroupResponse
+}

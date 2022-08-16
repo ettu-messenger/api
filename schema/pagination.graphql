@@ -1,0 +1,22 @@
+
+######
+# Type
+######
+
+type Pagination {
+  "This will most likely be the `created` parameter of a document"
+  cursor: String
+  "Does this pagination query have additional pages?"
+  hasNextPage: Boolean
+  "Does this pagination query have previous pages?"
+  hasPreviousPage: Boolean
+}
+
+#######
+# Input
+#######
+
+input PaginationOptions {
+  after: String
+  first: Int
+}

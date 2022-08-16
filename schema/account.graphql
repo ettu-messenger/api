@@ -1,0 +1,53 @@
+
+######
+# Type
+######
+
+type Account {
+  "Format of strings in this array is <id>@<domain|tld>"
+  allow: [String]
+  "Format of strings in this array is <id>@<domain|tld>"
+  deny: [String]
+  avatar: String
+  "Format is <id>@<domain|tld>"
+  address: String
+  name: String
+  server: String
+  status: String
+  #
+  created: DateTime!
+  id: ID!
+  updated: DateTime!
+}
+
+type AccountResponse {
+  detail: Account
+}
+
+type AccountsResponse {
+  detail: [Account]
+  pageInfo: Pagination
+}
+
+#######
+# Input
+#######
+
+input AccountInput {
+  avatar: String
+  "Format is <id>@<domain|tld>"
+  address: String
+  name: String
+  server: String
+  status: String
+  # no created, id, updated
+}
+
+input AccountQuery {
+  address: String
+  id: ID
+}
+
+input AccountsQuery {
+  server: String
+}

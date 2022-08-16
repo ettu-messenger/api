@@ -1,0 +1,46 @@
+
+######
+# Type
+######
+
+type Emoji {
+  category: [String]
+  """
+  The `content` could be a link to a hosted file, SVG, or Unicode.
+  """
+  content: String
+  #
+  created: DateTime!
+  id: ID!
+  updated: DateTime!
+}
+
+type EmojiResponse {
+  detail: Emoji
+}
+
+type MoreEmojiResponse {
+  detail: [Emoji]
+  pageInfo: Pagination
+}
+
+#######
+# Input
+#######
+
+input EmojiInput {
+  category: [String]
+  """
+  The `content` could be a link to a hosted file, SVG, or Unicode.
+  """
+  content: String
+  # no created, id, updated
+}
+
+input EmojiQuery {
+  id: ID
+}
+
+input MoreEmojiQuery {
+  category: String
+}
