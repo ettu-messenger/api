@@ -1,25 +1,38 @@
 
 ######
+# Enum
+######
+
+enum Status {
+  DO_NOT_DISTURB
+  IDLE
+  INVISIBLE
+  ONLINE
+}
+
+######
 # Type
 ######
 
 type Account {
   """
+  Format is <name>@<domain|tld>
+  """
+  address: String
+  avatar: String
+  """
   Array of account IDs
   """
   allow: [ID]
+  banner: String
+  bio: String
   """
   Array of account IDs
   """
   deny: [ID]
-  avatar: String
-  """
-  Format is <name>@<domain|tld>
-  """
-  address: String
   name: String
   server: String
-  status: String
+  status: Status
   #
   created: DateTime!
   id: ID!
@@ -40,14 +53,24 @@ type AccountsResponse {
 #######
 
 input AccountInput {
-  avatar: String
   """
   Format is <name>@<domain|tld>
   """
   address: String
+  avatar: String
+  """
+  Array of account IDs
+  """
+  allow: [ID]
+  banner: String
+  bio: String
+  """
+  Array of account IDs
+  """
+  deny: [ID]
   name: String
   server: String
-  status: String
+  status: Status
   # no created, id, updated
 }
 
