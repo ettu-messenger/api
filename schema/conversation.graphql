@@ -1,0 +1,71 @@
+
+######
+# Type
+######
+
+type Conversation {
+  """
+  Array of account IDs
+  """
+  admin: [ID]
+  """
+  Array of account IDs
+  """
+  allow: [ID]
+  avatar: String
+  banner: String
+  """
+  Array of account IDs
+  """
+  deny: [ID]
+  """
+  Array of emoji IDs
+  """
+  emoji: [ID]
+  name: String
+  """
+  Array of hex codes
+  https://github.com/aeriform-io/Themes
+  """
+  theme: [String]
+  #
+  created: DateTime!
+  id: ID!
+  updated: DateTime!
+}
+
+type ConversationResponse {
+  detail: Conversation
+}
+
+#######
+# Input
+#######
+
+input ConversationInput {
+  """
+  Array of account IDs
+  """
+  allow: [String]
+  avatar: String
+  banner: String
+  """
+  Array of account IDs
+  """
+  deny: [String]
+  """
+  Array of emoji IDs
+  """
+  emoji: [ID]
+  name: String
+  """
+  Array of hex codes
+  https://github.com/aeriform-io/Themes
+  """
+  theme: [String]
+  # no created, id, updated
+}
+
+input ConversationQuery {
+  id: ID
+}

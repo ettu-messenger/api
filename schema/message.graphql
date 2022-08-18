@@ -1,0 +1,88 @@
+
+######
+# Type
+######
+
+type Reaction {
+  emoji: ID
+  """
+  Account ID
+  """
+  from: ID
+}
+
+type Message {
+  body: String
+  device: ID
+  """
+  Array of edits to `body`.
+  API/UI should cap edit count to 5.
+  """
+  edits: [String]
+  file: String
+  """
+  Account ID
+  """
+  from: ID
+  conversation: ID
+  reactions: [Reaction]
+  subject: String
+  thread: ID
+  time: DateTime
+  """
+  Account ID
+  """
+  to: ID
+  #
+  created: DateTime!
+  id: ID!
+  updated: DateTime!
+}
+
+type MessageResponse {
+  detail: Message
+}
+
+type MessagesResponse {
+  detail: [Message]
+  pageInfo: Pagination
+}
+
+#######
+# Input
+#######
+
+input MessageInput {
+  body: String
+  device: ID
+  file: String
+  "Account ID"
+  from: ID
+  conversation: ID
+  subject: String
+  thread: ID
+  time: DateTime
+  """
+  Account ID
+  """
+  to: ID
+  # no created, id, updated
+}
+
+input MessageQuery {
+  id: ID
+}
+
+input MessagesQuery {
+  device: ID
+  """
+  Account ID
+  """
+  from: ID
+  group: ID
+  thread: ID
+  """
+  Account ID
+  """
+  to: ID
+}

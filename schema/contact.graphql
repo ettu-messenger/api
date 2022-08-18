@@ -1,0 +1,54 @@
+"""
+`Contact`s are basically personalized metadata for `Account`s
+"""
+
+######
+# Type
+######
+
+type Contact {
+  account: ID
+  block: Boolean
+  mute: Boolean
+  nickname: String
+  #
+  created: DateTime!
+  id: ID!
+  updated: DateTime!
+}
+
+type ContactResponse {
+  detail: Contact
+}
+
+type ContactsResponse {
+  detail: [Contact]
+  pageInfo: Pagination
+}
+
+#######
+# Input
+#######
+
+input ContactInput {
+  account: ID
+  block: Boolean
+  mute: Boolean
+  nickname: String
+  # no created, id, updated
+}
+
+input ContactQuery {
+  account: ID
+  id: ID
+}
+
+input ContactsQuery {
+  block: Boolean
+  mute: Boolean
+  """
+  This would be useful for live search
+  """
+  startsWith: String
+}
+

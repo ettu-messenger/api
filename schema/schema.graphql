@@ -8,9 +8,10 @@ The `Decimal` scalar type represents monetary values. It is used for preserving 
 scalar Decimal
 
 # import from "account.graphql"
-# import from "chat.graphql"
+# import from "contact.graphql"
+# import from "conversation.graphql"
 # import from "emoji.graphql"
-# import from "group.graphql"
+# import from "message.graphql"
 # import from "pagination.graphql"
 
 type BooleanResponse {
@@ -26,10 +27,15 @@ type Query {
   accounts(params: AccountsQuery, pagination: PaginationOptions): AccountsResponse
 
   """
-  Chat queries
+  Contact queries
   """
-  chat(params: ChatQuery): ChatResponse
-  chats(params: ChatsQuery, pagination: PaginationOptions): ChatsResponse
+  contact(params: ContactQuery): ContactResponse
+  contacts(params: ContactsQuery, pagination: PaginationOptions): ContactsResponse
+
+  """
+  Conversation query
+  """
+  conversation(params: ConversationQuery): ConversationResponse
 
   """
   Emoji queries
@@ -38,9 +44,10 @@ type Query {
   moreEmoji(params: MoreEmojiQuery, pagination: PaginationOptions): MoreEmojiResponse
 
   """
-  Group query
+  Message queries
   """
-  group(params: GroupQuery): GroupResponse
+  message(params: MessageQuery): MessageResponse
+  messages(params: MessagesQuery, pagination: PaginationOptions): MessagesResponse
 }
 
 type Mutation {
@@ -52,11 +59,18 @@ type Mutation {
   updateAccount(params: AccountQuery, updates: AccountInput): AccountResponse
 
   """
-  Chat mutations
+  Contact mutations
   """
-  createChat(params: ChatInput): ChatResponse
-  deleteChat(params: ChatQuery): BooleanResponse
-  updateChat(params: ChatQuery, updates: ChatInput): ChatResponse
+  createContact(params: ContactInput): ContactResponse
+  deleteContact(params: ContactQuery): BooleanResponse
+  updateContact(params: ContactQuery, updates: ContactInput): ContactResponse
+
+  """
+  Conversation mutations
+  """
+  createConversation(params: ConversationInput): ConversationResponse
+  deleteConversation(params: ConversationQuery): BooleanResponse
+  updateConversation(params: ConversationQuery, updates: ConversationInput): ConversationResponse
 
   """
   Emoji mutations
@@ -66,9 +80,9 @@ type Mutation {
   updateEmoji(params: EmojiQuery, updates: EmojiInput): EmojiResponse
 
   """
-  Group mutations
+  Message mutations
   """
-  createGroup(params: GroupInput): GroupResponse
-  deleteGroup(params: GroupQuery): BooleanResponse
-  updateGroup(params: GroupQuery, updates: GroupInput): GroupResponse
+  createMessage(params: MessageInput): MessageResponse
+  deleteMessage(params: MessageQuery): BooleanResponse
+  updateMessage(params: MessageQuery, updates: MessageInput): MessageResponse
 }

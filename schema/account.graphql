@@ -4,12 +4,18 @@
 ######
 
 type Account {
-  "Format of strings in this array is <id>@<domain|tld>"
-  allow: [String]
-  "Format of strings in this array is <id>@<domain|tld>"
-  deny: [String]
+  """
+  Array of account IDs
+  """
+  allow: [ID]
+  """
+  Array of account IDs
+  """
+  deny: [ID]
   avatar: String
-  "Format is <id>@<domain|tld>"
+  """
+  Format is <name>@<domain|tld>
+  """
   address: String
   name: String
   server: String
@@ -35,7 +41,9 @@ type AccountsResponse {
 
 input AccountInput {
   avatar: String
-  "Format is <id>@<domain|tld>"
+  """
+  Format is <name>@<domain|tld>
+  """
   address: String
   name: String
   server: String
