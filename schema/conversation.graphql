@@ -18,11 +18,13 @@ type Conversation {
   Array of account IDs
   """
   deny: [ID]
+  description: String
   """
   Array of emoji IDs
   """
   emoji: [ID]
   name: String
+  pin: Boolean
   """
   Array of hex codes
   https://github.com/aeriform-io/Themes
@@ -53,11 +55,13 @@ input ConversationInput {
   Array of account IDs
   """
   deny: [String]
+  description: String
   """
   Array of emoji IDs
   """
   emoji: [ID]
   name: String
+  pin: Boolean
   """
   Array of hex codes
   https://github.com/aeriform-io/Themes

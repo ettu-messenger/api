@@ -3,6 +3,13 @@
 # Enum
 ######
 
+enum Role {
+  ADMIN
+  BOT
+  MEMBER
+  MODERATOR
+}
+
 enum Status {
   DO_NOT_DISTURB
   IDLE
@@ -30,6 +37,7 @@ type Account {
   Array of account IDs
   """
   deny: [ID]
+  homepage: String
   name: String
   server: String
   status: Status
@@ -68,6 +76,7 @@ input AccountInput {
   Array of account IDs
   """
   deny: [ID]
+  homepage: String
   name: String
   server: String
   status: Status
