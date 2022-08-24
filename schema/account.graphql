@@ -61,20 +61,11 @@ type AccountsResponse {
 #######
 
 input AccountInput {
-  """
-  Format is <name>@<domain|tld>
-  """
   address: String
   avatar: String
-  """
-  Array of account IDs
-  """
   allow: [ID]
   banner: String
   bio: String
-  """
-  Array of account IDs
-  """
   deny: [ID]
   homepage: String
   name: String

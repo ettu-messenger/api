@@ -13,6 +13,7 @@ type Reaction {
 
 type Message {
   body: String
+  conversation: ID
   device: ID
   """
   Array of edits to `body`.
@@ -24,8 +25,11 @@ type Message {
   Account ID
   """
   from: ID
-  conversation: ID
   reactions: [Reaction]
+  """
+  Clients are to blur/redact the message content until the user clicks/taps on it
+  """
+  spoiler: Boolean
   subject: String
   thread: ID
   time: DateTime
@@ -54,17 +58,14 @@ type MessagesResponse {
 
 input MessageInput {
   body: String
+  conversation: ID
   device: ID
   file: String
-  "Account ID"
   from: ID
-  conversation: ID
+  spoiler: Boolean
   subject: String
   thread: ID
   time: DateTime
-  """
-  Account ID
-  """
   to: ID
   # no created, id, updated
 }
@@ -75,14 +76,8 @@ input MessageQuery {
 
 input MessagesQuery {
   device: ID
-  """
-  Account ID
-  """
   from: ID
   group: ID
   thread: ID
-  """
-  Account ID
-  """
   to: ID
 }

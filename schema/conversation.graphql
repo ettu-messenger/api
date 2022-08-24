@@ -45,27 +45,14 @@ type ConversationResponse {
 #######
 
 input ConversationInput {
-  """
-  Array of account IDs
-  """
   allow: [String]
   avatar: String
   banner: String
-  """
-  Array of account IDs
-  """
   deny: [String]
   description: String
-  """
-  Array of emoji IDs
-  """
   emoji: [ID]
   name: String
   pin: Boolean
-  """
-  Array of hex codes
-  https://github.com/aeriform-io/Themes
-  """
   theme: [String]
   # no created, id, updated
 }
