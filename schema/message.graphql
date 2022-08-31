@@ -20,6 +20,11 @@ type Message {
   API/UI should cap edit count to 5.
   """
   edits: [String]
+  """
+  Is this a disappearing message?
+  Must be used with the `temporary` parameter
+  """
+  expires: DateTime
   file: String
   """
   Account ID
@@ -31,6 +36,11 @@ type Message {
   """
   spoiler: Boolean
   subject: String
+  """
+  Is this a disappearing message?
+  Must be used with the `expires` parameter
+  """
+  temporary: Boolean
   thread: ID
   time: DateTime
   """
